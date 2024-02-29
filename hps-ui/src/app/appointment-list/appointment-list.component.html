@@ -1,0 +1,28 @@
+<h1>Appointment List</h1>
+<!--<app-navbar></app-navbar>-->
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Doctor Name </th>
+    <th scope="col">Patient Name </th>
+    <th scope="col">Date</th>
+    <th scope="col">Time</th>
+    <th scope="col">Location</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor ="let appointment of appointments; let i = index">
+    <td >{{i+1}}</td>
+    <td>{{ appointment.doctor.doctor_name}}</td>
+    <td>{{ appointment.patient.patient_name}}</td>
+    <td>{{appointment.date}}</td>
+    <td>{{appointment.time}}</td>
+    <td>{{appointment.location}}</td>
+    <td><button *ngIf= "isAdmin" (click)="updateAppointment(appointment.appointmentId)" class="btn btn-primary">Update</button></td>
+    <td><button *ngIf="isAdmin"  (click)="deleteAppointment(appointment.appointmentId)" class="btn btn-primary">Delete</button></td>
+
+
+  </tr>
+  </tbody>
+</table>
